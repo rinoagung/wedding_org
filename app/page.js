@@ -118,8 +118,8 @@ const MainContent = () => {
                     p={11}
 
                 >
-                    <Text className={`animate__animated ${animate ? "animate__fadeInUp" : ""}`} letterSpacing={2} fontFamily={poppins.style.fontFamily} textStyle="md" fontWeight="bold">WEDDING ANNOUNCEMENT</Text>
-                    <Heading py={10} fontFamily={butler.style.fontFamily} textStyle="7xl" fontWeight={"light"} lineHeight={"72px"}>TIFFANY &
+                    <Text className={`animate__animated ${animate ? "animate__fadeInUp" : ""}`} letterSpacing={2} fontFamily={poppins.style.fontFamily} fontSize="16" textStyle="md" fontWeight="bold">WEDDING ANNOUNCEMENT</Text>
+                    <Heading py={10} fontFamily={butler.style.fontFamily} fontSize="72" textStyle="7xl" fontWeight={"light"} lineHeight={"72px"}>TIFFANY &
                         <br />
                         JARED</Heading>
                     <Text letterSpacing="0.1em" className={`animate__animated ${animate ? "animate__fadeInUp" : ""}`} fontWeight={"light"} fontFamily={newsReader.style.fontFamily} as="p">"Aku ingin mencintaimu dengan sederhana; dengan kata yang tak sempat  diucapkan kayu kepada api yang menjadikannya abu. Aku ingin mencintaimu  dengan sederhana; dengan isyarat yang tak sempat disampaikan awan kepada  hujan yang menjadikannya tiada."

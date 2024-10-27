@@ -1,4 +1,4 @@
-// components/content_2.js
+
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import { Button } from "@chakra-ui/react";
@@ -46,14 +46,18 @@ const Content2 = () => {
 
     const sliderRef = useRef(null);
     const audioRef = useRef(null);
+    const [currentImage, setCurrentImage] = useState(0);
 
-    const [animate, setAnimate] = useState(false);
+
+    const [animate, setAnimate] = useState(true);
+    const [fadeIn, setFadeIn] = useState(false);
+
     const images = [
         "image/1.jpg",
         "image/2.jpg",
         "image/3.jpg",
         "image/4.jpg"
-        // "https://invitato.net/test-product-engineer/static/4-3943e72cf6bb4fe685c5917ea1d1cac4.jpg"
+
     ];
 
 
@@ -69,8 +73,8 @@ const Content2 = () => {
         infinite: true,
         speed: 500,
         centerMode: true,
-        centerPadding: "100px", // Padding untuk gambar di sisi kiri dan kanan
-        slidesToShow: 1, // Menampilkan 3 gambar
+        centerPadding: "100px",
+        slidesToShow: 1,
         slidesToScroll: 1,
         responsive: [
             {
@@ -93,10 +97,10 @@ const Content2 = () => {
     };
 
     useEffect(() => {
-        setAnimate(true);
+
 
         if (audioRef.current) {
-            audioRef.current.muted = false; // Pastikan tidak dimute
+            audioRef.current.muted = false;
             audioRef.current.play().catch(error => {
                 console.error("Error playing audio:", error);
             });
@@ -104,24 +108,48 @@ const Content2 = () => {
     }, []);
 
     useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.muted = isMuted; // Toggle mute
+        const interval = setInterval(() => {
+
+            setFadeIn(false);
+
+            setTimeout(() => {
+                setCurrentImage(prev => (prev + 1) % images.length);
+                setFadeIn(true);
+            }, 1000);
+
+        }, 3000);
+
+
+        if (animate) {
+            setTimeout(() => {
+                setAnimate(false);
+            }, 2000);
         }
-    }, [isMuted]); // Menambahkan isMuted sebagai dependency
+
+        return () => clearInterval(interval);
+    }, [animate]);
+
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.muted = isMuted;
+        }
+    }, [isMuted]);
 
     return (
-        <Box overflowY="auto"
+        <Box
+            overflowX="hidden"
+            overflowY="auto"
             width={"100%"}
             height={"100%"}>
             <Box
-                className={`animate__animated ${animate ? "animate__fadeInUp" : ""}`}
+                className={`animate__animated ${animate ? "animate__fadeInUp" : ""} ${fadeIn ? "animate__fadeIn" : ""}`}
                 display="flex"
                 flexDirection="column"
                 color="white"
                 width={"100%"}
                 height={"100%"}
                 textAlign="center"
-                bgImage="url('https://ik.imagekit.io/drpq5xrph/Template%20Tiffany%20&%20Jared/1.%20Cover.jpg?updatedAt=1698222296920')"
+                bgImage={`url(${images[currentImage]})`}
                 bgSize="cover"
             >
                 <Box
@@ -186,26 +214,34 @@ const Content2 = () => {
                                     alt={`Image ${index + 1}`}
                                     borderRadius="8px"
                                     maxHeight={450}
-                                    onClick={() => handleImageClick(src)} // Tambahkan onClick
-                                    cursor="pointer" // Ubah cursor menjadi pointer
+                                    onClick={() => handleImageClick(src)}
+                                    cursor="pointer"
                                 />
                             </Box>
                         ))}
                     </Slider>
-
                     <Modal isOpen={isOpen} onClose={handleClose}>
                         <ModalOverlay />
-                        <ModalContent p={40} bg="rgba(0, 0, 0, 0.8)" height={"100%"} width={"100%"}>
-                            <ModalCloseButton position="absolute" right="10px" top="10px" color="white" p={40} />
+                        <ModalContent
+                            p={0}
+                            bg="rgba(0, 0, 0, 0.8)"
+                            h="110vh"
+                            w="110vw"
+                            overflow="hidden"
+                        >
+                            <ModalCloseButton position="absolute" right="40px" top="40px" color="white" />
                             <ModalBody
-                                p={50}
+                                h="100vh"
+                                p={0}
                                 display="flex"
                                 alignItems="center"
-                                justifyContent="center">
-                                <Image src={selectedImage} alt="Selected" maxH={"80vh"} />
+                                justifyContent="center"
+                            >
+                                <Image src={selectedImage} alt="Selected" maxH="80vh" padding="40px" />
                             </ModalBody>
                         </ModalContent>
                     </Modal>
+
                     <Box
                         position="relative">
 
