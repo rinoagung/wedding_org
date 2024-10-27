@@ -12,7 +12,6 @@ import Content2 from "@/components/contest_2";
 import { ContentProvider, useContent } from "@/components/contentContext";
 
 
-
 const poppins = localFont({
     src: './fonts/Poppins-Bold.ttf',
     variable: '--font-poppins',
