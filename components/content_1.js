@@ -49,7 +49,7 @@ const Content1 = () => {
                 height={"100%"}
             >
                 <Text height={"30%"} letterSpacing={2} fontFamily={poppins.style.fontFamily} fontSize="16px" fontWeight="bold">WEDDING ANNOUNCEMENT</Text>
-                <Heading height={"40%"} py={10} fontFamily={butler.style.fontFamily} fontSize="36px" fontWeight={"light"}>Tiffany & Jared
+                <Heading height={"40%"} py={10} fontFamily={butler.style.fontFamily} fontSize="36px" fontWeight={"light"}>TIFFANY & JARED
                     <br /> #TImetoshaRE</Heading>
                 <Box height={"30%"}>
                     <Button m="auto" fontFamily={newsReader.style.fontFamily} display="block" fontSize="20px" px="10" onClick={handleButtonClick}>Open</Button>

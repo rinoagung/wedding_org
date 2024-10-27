@@ -161,7 +161,7 @@ const Content2 = () => {
                     height={"100%"}
                     p={20}>
                     <Text height={"30%"} letterSpacing={2} fontFamily={poppins.style.fontFamily} textStyle="md" fontWeight="bold">WEDDING ANNOUNCEMENT</Text>
-                    <Heading height={"40%"} py={10} fontFamily={butler.style.fontFamily} textStyle="4xl" fontWeight={"light"}>Tiffany & Jared
+                    <Heading height={"40%"} py={10} fontFamily={butler.style.fontFamily} textStyle="4xl" fontWeight={"light"}>TIFFANY & JARED
                         <br /> #TImetoshaRE</Heading>
                     <Box height={"30%"}
                         display="flex"
