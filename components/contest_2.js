@@ -1,13 +1,14 @@
 // components/content_2.js
 import React, { useRef } from "react";
 import Slider from "react-slick";
-import { Box, Text, Heading, Image, Flex, IconButton, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalBody } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import { Box, Text, Heading, Image, Flex, IconButton } from "@chakra-ui/react";
 import localFont from "next/font/local";
 import { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useContent } from "./contentContext";
-// import { Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalBody } from "@chakra-ui/modal";
+import { Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalBody } from "@chakra-ui/modal";
 
 
 const poppins = localFont({
