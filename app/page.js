@@ -4,9 +4,9 @@
 import "animate.css";
 import { useEffect, useState, useRef } from "react";
 
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 import localFont from "next/font/local"
-import { Flex, Box, Text, Heading, Center, IconButton } from "@chakra-ui/react"
+import { Button, Flex, Box, Text, Heading, Center, IconButton } from "@chakra-ui/react"
 import Content1 from "@/components/content_1";
 import Content2 from "@/components/contest_2";
 import { ContentProvider, useContent } from "@/components/contentContext";
@@ -40,9 +40,6 @@ const App = () => {
 const MainContent = () => {
     const [animate, setAnimate] = useState(false);
     const { showScrollContent, setIsMuted, isMuted } = useContent();
-
-    const audioRef = useRef(null);
-
 
     function playAnimation() {
 
@@ -114,7 +111,7 @@ const MainContent = () => {
                     alignItems="flex-start"
                     justifyContent="flex-start"
                     color="white"
-                    p={11}
+                    p={12}
 
                 >
                     <Text className={`animate__animated ${animate ? "animate__fadeInUp" : ""}`} letterSpacing={2} fontFamily={poppins.style.fontFamily} textStyle="md" fontWeight="bold">WEDDING ANNOUNCEMENT</Text>

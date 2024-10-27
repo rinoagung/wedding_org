@@ -1,7 +1,7 @@
 // components/content_2.js
 import { useRef } from "react";
-import { Button } from "@chakra-ui/react";
-import { Box, Text, Heading } from "@chakra-ui/react";
+// import { Button } from "@chakra-ui/react";
+import { Button, Box, Text, Heading } from "@chakra-ui/react";
 import localFont from "next/font/local";
 import { useContent } from "./contentContext";
 
