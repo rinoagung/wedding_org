@@ -115,9 +115,9 @@ const Content2 = () => {
             setTimeout(() => {
                 setCurrentImage(prev => (prev + 1) % images.length);
                 setFadeIn(true);
-            }, 1000);
+            }, 2500);
 
-        }, 3000);
+        }, 5000);
 
 
         if (animate) {
@@ -151,6 +151,9 @@ const Content2 = () => {
                 textAlign="center"
                 bgImage={`url(${images[currentImage]})`}
                 bgSize="cover"
+                style={{
+                    animationDuration: animate ? '2s' : '2.5s', // Durasi animasi
+                }}
             >
                 <Box
                     bg="rgba(0, 0, 0, 0.35)"
